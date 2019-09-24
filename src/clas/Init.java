@@ -1,19 +1,19 @@
 package clas;
 
+import static clas.Init.UatArr;
 import entities.Uat;
 import static entities.Uat.IW;
 import java.awt.image.BufferedImage;
 import static rendering.Rendering.FirstRender;
-import static clas.Init.UatArr;
 
 public class Init {
 
  public static BufferedImage ScreenIcon;
  public static Uat[] UatArr = new Uat[100];
- public static final int Cof = 0;
+ public static final int Cof = 1;
  public static final int ImageS = 32*(Cof+1);
  public static int Enum = 0;
- public static final int[] GameScreen = {ImageS * 30 , ImageS * 20 };
+ public static final int[] GameScreen = {ImageS * 20 , ImageS * 15 };
  public static String[][] GamePlace = new String[GameScreen[0] / ImageS ][GameScreen[1] / ImageS ];
  public static String[] UatStr = new String[UatArr.length];
 

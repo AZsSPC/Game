@@ -5,15 +5,11 @@ import static clas.Init.Cof;
 import static clas.Init.GamePlace;
 import static clas.Init.GameScreen;
 import static clas.Init.ImageS;
-import static clas.Init.UatArr;
 import static entities.Uat.IW;
-import java.awt.Color;
-import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
 public class Rendering {

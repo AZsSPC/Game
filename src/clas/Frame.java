@@ -65,4 +65,5 @@ public class Frame extends javax.swing.JFrame {
  public static javax.swing.JLabel Out;
  public static javax.swing.JPanel OutPane;
  // End of variables declaration//GEN-END:variables
+
 }

@@ -1,25 +1,23 @@
 package entities;
-
 import static clas.Init.Enum;
-import static clas.Init.UatStr;
+import static clas.Init.UatLit;
 
-public class Uat {
+public class Uat{
 
- public Uat(String name, int id, String sid, String texture) {
-  Name = name;
-  ID = id;
-  StringID = sid;
-  Texture = texture;
-  System.out.println("Name:{" + Name + "},ID:{" + ID + "},SID:{" + StringID + "},Texture:{" + Texture + "}");
-  UatStr[Enum] = Texture ;
+ public Uat(String name, int id, String sid, String texture){
+  UatLit[Enum][0] = name;
+  UatLit[Enum][1] = id;
+  UatLit[Enum][2] = sid;
+  UatLit[Enum][3] = texture;
   Enum++;
+  //System.out.println("Name:{" + name + "},ID:{" + id + "},SID:{" + sid + "},Texture:{" + texture + "}");
  }
 
- public static void setPos() {
-
+ public static String GetTexture(int id){
+  return UatLit[id][3] + "";
  }
 
- public static String IW(String s) {
+ public static String IW(String s){
   return "src/images/" + s + ".png";
  }
  static private String Name;
@@ -27,4 +25,5 @@ public class Uat {
  static private String StringID;
  static private int[] Pos = new int[2];
  static private String Texture = IW("null");
+
 }

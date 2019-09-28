@@ -1,27 +1,31 @@
 package clas;
-
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import static rendering.Rendering.RenderAll;
+import static rendering.Rendering.RenderGround;
 
-public class Thrd extends Thread {
+public class Thrd extends Thread{
 
  @Override
- public void run() {
-  Sleep(200);
-  try {
-   RenderAll();
-  } catch (IOException ex) {
-   Logger.getLogger(Thrd.class.getName()).log(Level.SEVERE, null, ex);
+ public void run(){
+  try{
+   RenderGround();
+   while(true){
+	Sleep(200);
+	try{
+	 RenderAll();
+	}catch(IOException ex){
+	}
+   }
+  }catch(IOException ex){
   }
  }
 
  //
- private void Sleep(int l) {
-  try {
+ private void Sleep(int l){
+  try{
    Thread.sleep(l);
-  } catch (InterruptedException i) {
+  }catch(InterruptedException i){
   }
  }
+
 }

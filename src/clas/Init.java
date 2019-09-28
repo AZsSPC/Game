@@ -3,11 +3,13 @@ import entities.Uat;
 import static entities.Uat.GetTexture;
 import static entities.Uat.IW;
 import java.awt.image.BufferedImage;
-import static rendering.Rendering.FirstRender;
+import java.io.IOException;
+import static rendering.Rendering.RenderGround;
 
 public class Init{
 
  public static BufferedImage ScreenIcon;
+ public static BufferedImage AllGround;
  public static final int Cof = 1;
  public static final int ImageS = 32 * (Cof + 1);
  public static int Enum = 0;
@@ -15,9 +17,9 @@ public class Init{
  public static String[][] GamePlace = new String[GameScreen[0] / ImageS][GameScreen[1] / ImageS];
  public static Object[][] UatLit = new Object[100][4];
 
- public static void Init(){
+ public static void Init() throws IOException{
   InitUat();
-  FirstRender();
+  RenderGround();
   SetUat();
  }
 

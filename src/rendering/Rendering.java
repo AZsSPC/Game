@@ -1,5 +1,6 @@
 package rendering;
 import static clas.Frame.Out;
+import static clas.Init.AllGround;
 import static clas.Init.Cof;
 import static clas.Init.GamePlace;
 import static clas.Init.GameScreen;
@@ -13,33 +14,32 @@ import javax.swing.ImageIcon;
 
 public class Rendering{
 
- public static void FirstRender(){
- }
-
- public static void RenderAll() throws IOException{
-  Out.setIcon(new ImageIcon(Render2(RenderUat(Render1(Render0(ImageIO.read(new File(IW("null")))))))));
- }
-
- private static BufferedImage Render0(BufferedImage Base){
-  return null;
- }
-
- private static BufferedImage Render1(BufferedImage Base){
-  return null;
- }
-
- private static BufferedImage RenderUat(BufferedImage Base){
-  return null;
- }
-
- private static BufferedImage Render2(BufferedImage Base) throws IOException{
+ public static void RenderGround() throws IOException{
   BufferedImage Overlay = new BufferedImage(GameScreen[0], GameScreen[1], 1);
   for(int x = 0; x < GameScreen[0] / ImageS; x++){
    for(int y = 0; y < GameScreen[1] / ImageS; y++){
-	Base = RenderTile(x, y, GamePlace[x][y], Overlay);
+	AllGround = RenderTile(x, y, GamePlace[x][y], Overlay);
    }
   }
-  System.out.println("1");
+ }
+
+ public static void RenderAll() throws IOException{
+  Out.setIcon(new ImageIcon(Render2(RenderUat(Render1(Render0(AllGround))))));
+ }
+
+ private static BufferedImage Render0(BufferedImage Base) throws IOException{
+  return Base;
+ }
+
+ private static BufferedImage Render1(BufferedImage Base) throws IOException{
+  return Base;
+ }
+
+ private static BufferedImage RenderUat(BufferedImage Base) throws IOException{
+  return Base;
+ }
+
+ private static BufferedImage Render2(BufferedImage Base) throws IOException{
   return Base;
  }
 

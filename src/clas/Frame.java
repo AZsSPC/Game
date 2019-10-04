@@ -1,5 +1,6 @@
 package clas;
 
+import static clas.Init.ScreenPos;
 import java.io.IOException;
 
 public class Frame extends javax.swing.JFrame {
@@ -16,16 +17,21 @@ public class Frame extends javax.swing.JFrame {
   Out = new javax.swing.JLabel();
 
   setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-  setMaximumSize(new java.awt.Dimension(4000, 4000));
+  setMaximumSize(new java.awt.Dimension(99999, 99999));
   setMinimumSize(new java.awt.Dimension(300, 300));
+  addKeyListener(new java.awt.event.KeyAdapter() {
+   public void keyTyped(java.awt.event.KeyEvent evt) {
+    formKeyTyped(evt);
+   }
+  });
 
   OutPane.setBackground(new java.awt.Color(0, 0, 0));
-  OutPane.setMaximumSize(new java.awt.Dimension(4000, 4000));
+  OutPane.setMaximumSize(new java.awt.Dimension(99999, 99999));
   OutPane.setMinimumSize(new java.awt.Dimension(300, 300));
   OutPane.setPreferredSize(new java.awt.Dimension(1200, 700));
 
   Out.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-  Out.setMaximumSize(new java.awt.Dimension(4000, 4000));
+  Out.setMaximumSize(new java.awt.Dimension(99999, 99999));
   Out.setMinimumSize(new java.awt.Dimension(300, 300));
   Out.setPreferredSize(new java.awt.Dimension(1200, 700));
 
@@ -33,27 +39,35 @@ public class Frame extends javax.swing.JFrame {
   OutPane.setLayout(OutPaneLayout);
   OutPaneLayout.setHorizontalGroup(
    OutPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-   .addComponent(Out, javax.swing.GroupLayout.DEFAULT_SIZE, 577, Short.MAX_VALUE)
+   .addComponent(Out, javax.swing.GroupLayout.DEFAULT_SIZE, 998, Short.MAX_VALUE)
   );
   OutPaneLayout.setVerticalGroup(
    OutPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-   .addComponent(Out, javax.swing.GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE)
+   .addComponent(Out, javax.swing.GroupLayout.DEFAULT_SIZE, 796, Short.MAX_VALUE)
   );
 
   javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
   getContentPane().setLayout(layout);
   layout.setHorizontalGroup(
    layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-   .addComponent(OutPane, javax.swing.GroupLayout.DEFAULT_SIZE, 577, Short.MAX_VALUE)
+   .addGroup(layout.createSequentialGroup()
+    .addComponent(OutPane, javax.swing.GroupLayout.DEFAULT_SIZE, 998, Short.MAX_VALUE)
+    .addGap(0, 0, 0))
   );
   layout.setVerticalGroup(
    layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-   .addComponent(OutPane, javax.swing.GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE)
+   .addGroup(layout.createSequentialGroup()
+    .addComponent(OutPane, javax.swing.GroupLayout.DEFAULT_SIZE, 796, Short.MAX_VALUE)
+    .addGap(0, 0, 0))
   );
 
   pack();
   setLocationRelativeTo(null);
  }// </editor-fold>//GEN-END:initComponents
+
+ private void formKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyTyped
+  ScreenPos[0]+=10;
+ }//GEN-LAST:event_formKeyTyped
 
  public static void main(String args[]) throws IOException {
   new Frame().setVisible(true);

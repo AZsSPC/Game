@@ -10,7 +10,7 @@ public class Thrd extends Thread{
   try{
    RenderGround();
    while(true){
-	Sleep(200);
+	Sleep(5);
 	try{
 	 RenderAll();
 	}catch(IOException ex){

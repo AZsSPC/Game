@@ -10,11 +10,12 @@ import static rendering.Rendering.RenderGround;
 public class Init {
 
  public static BufferedImage ScreenIcon;
+ public static int[] ScreenPos = {0, 0};
  public static BufferedImage AllGround;
  public static final int Cof = 3;
  public static final int ImageS = 16 * (Cof + 1);
  public static int Enum = 0;
- public static final int[] GameScreen = {ImageS * 50, ImageS * 50};
+ public static final int[] GameScreen = {ImageS * 30, ImageS * 30};
  public static String[][] GamePlace = new String[GameScreen[0] / ImageS][GameScreen[1] / ImageS];
  public static Object[][] UatLit = new Object[100][4];
 
@@ -38,7 +39,7 @@ public class Init {
  private static void SetUat() {
   for (int x = 0; x < GameScreen[0] / ImageS; x++) {
    for (int y = 0; y < GameScreen[1] / ImageS; y++) {
-    GamePlace[x][y] = GetTexture((int) (Math.random() * Enum));
+    GamePlace[x][y] = GetTexture((int) (Math.random() * (Enum - 1)));
    }
   }
  }

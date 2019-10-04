@@ -4,10 +4,7 @@ import static clas.Init.GameScreen;
 import static clas.Init.ScreenBounds;
 import static clas.Init.ScreenPos;
 import static clas.Init.StepLength;
-import java.awt.event.KeyEvent;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class Frame extends javax.swing.JFrame {
 
@@ -22,6 +19,7 @@ public class Frame extends javax.swing.JFrame {
    public void keyPressed(java.awt.event.KeyEvent evt) {
     formKeyPressed(evt);
    }
+
   });
  }
  // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

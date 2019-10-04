@@ -10,8 +10,8 @@ import static rendering.Rendering.RenderGround;
 public class Init {
 
  public static BufferedImage ScreenIcon;
- public static int StepLength =30;
- public static final int[] ScreenBounds={900,700}; 
+ public static int StepLength =10;
+ public static final int[] ScreenBounds={800,800}; 
  public static int[] ScreenPos = {10 * StepLength, 10 * StepLength};
  public static BufferedImage AllGround;
  public static final int Cof = 3;

@@ -6,6 +6,7 @@ import static clas.Init.Cof;
 import static clas.Init.GamePlace;
 import static clas.Init.GameScreen;
 import static clas.Init.ImageS;
+import static clas.Init.ScreenBounds;
 import static clas.Init.ScreenIcon;
 import static clas.Init.ScreenPos;
 import static entities.Uat.IW;
@@ -27,7 +28,7 @@ public class Rendering {
  }
 
  public static void RenderAll() throws IOException {
-  ScreenIcon = Cut(ScreenPos[0], ScreenPos[1], ScreenPos[0] + 1000, ScreenPos[1] + 1000, AllGround);
+  ScreenIcon = Cut(ScreenPos[0], ScreenPos[1], ScreenPos[0] + ScreenBounds[0], ScreenPos[1] + ScreenBounds[1], AllGround);
   Out.setIcon(new ImageIcon(Render2(RenderUat(Render1(Render0(ScreenIcon))))));
  }
 

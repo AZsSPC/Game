@@ -34,10 +34,12 @@ public class Rendering{
  }
 
  private static BufferedImage Render0(BufferedImage Base) throws IOException{
+  Base = Base;
   return Base;
  }
 
  private static BufferedImage Render1(BufferedImage Base) throws IOException{
+  Base = Base;
   return Base;
  }
 
@@ -47,6 +49,7 @@ public class Rendering{
  }
 
  private static BufferedImage Render2(BufferedImage Base) throws IOException{
+  Base = Base;
   return Base;
  }
 
@@ -72,6 +75,37 @@ public class Rendering{
   return ReturnImage;
  }
 
+ private static BufferedImage DrawUat(int x, int y, String UatTexture, BufferedImage Base) throws IOException{
+  BufferedImage Uat = updateUatSize(1, (updateToCof(ImageIO.read(new File(IW(UatTexture))))));
+  int W = Uat.getWidth();
+  int H = Uat.getHeight();
+  x -= W / 2;
+  y -= H / 2;
+  int Yy = y;
+  for(int X = 0; X < W; X++, x++){
+   for(int Y = 0; Y < H; Y++, y++){
+	try{
+	 if(Uat.getRGB(X, Y) != new Color(2, 1, 8).getRGB())Base.setRGB(x, y, Uat.getRGB(X, Y));
+	}catch(Exception e){
+	}
+   }
+   y = Yy;
+  }
+  return Base;
+ }
+
+ private static BufferedImage updateUatSize(int size, BufferedImage InputImage){
+  int W = InputImage.getWidth();
+  int H = InputImage.getHeight();
+  BufferedImage CurrentImage = new BufferedImage(W * (size + 1), H * (size + 1), 1);
+  for(int x = 0; x < W * (size + 1); x++){
+   for(int y = 0; y < H * (size + 1); y++){
+	CurrentImage.setRGB(x, y, InputImage.getRGB(x / (size + 1), y / (size + 1)));
+   }
+  }
+  return CurrentImage;
+ }
+
  private static BufferedImage updateToCof(BufferedImage InputImage){
   BufferedImage CurrentImage = new BufferedImage(ImageS, ImageS, 1);
   for(int x = 0; x < ImageS; x++){
@@ -90,37 +124,6 @@ public class Rendering{
    }
   }
   return CurrentImage;
- }
-
- private static BufferedImage updateUatSize(int size, BufferedImage InputImage){
-  int W = InputImage.getWidth();
-  int H = InputImage.getHeight();
-  BufferedImage CurrentImage = new BufferedImage(W * (size + 1), H * (size + 1), 1);
-  for(int x = 0; x < W * (size + 1); x++){
-   for(int y = 0; y < H * (size + 1); y++){
-	CurrentImage.setRGB(x, y, InputImage.getRGB(x / (size + 1), y / (size + 1)));
-   }
-  }
-  return CurrentImage;
- }
-
- private static BufferedImage DrawUat(int x, int y, String UatTexture, BufferedImage Base) throws IOException{
-  BufferedImage Uat = updateUatSize(1, (updateToCof(ImageIO.read(new File(IW(UatTexture))))));
-  int W = Uat.getWidth();
-  int H = Uat.getHeight();
-  x -= W / 2;
-  y -= H / 2;
-  int Yy = y;
-  for(int X = 0; X < W; X++, x++){
-   for(int Y = 0; Y < H; Y++, y++){
-	try{
-	 if(Uat.getRGB(X, Y) != new Color(2, 1, 8).getRGB())Base.setRGB(x, y, Uat.getRGB(X, Y));
-	}catch(Exception e){
-	}
-   }
-   y = Yy;
-  }
-  return Base;
  }
 
 }

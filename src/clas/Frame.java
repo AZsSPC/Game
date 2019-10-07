@@ -29,7 +29,6 @@ public class Frame extends javax.swing.JFrame {
   Out = new javax.swing.JLabel();
 
   setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-  setMaximumSize(new java.awt.Dimension(99999, 99999));
   setMinimumSize(new java.awt.Dimension(300, 300));
 
   OutPane.setBackground(new java.awt.Color(0, 0, 0));

@@ -9,7 +9,7 @@ public class Init{
 
  public static BufferedImage AllGround;
  public static int Enum = 0;
- public static int StepLength = 10;
+ public static int StepLength = 15;
  public static final int Cof = 1;
  public static Object[][] UatLit = new Object[100][4];
  public static final int[] ScreenBounds = {800, 800};
@@ -20,7 +20,7 @@ public class Init{
 
  public static void Init() throws IOException{
   InitUat();
-  SetUat();
+  SetPlace();
  }
 
  private static void InitUat(){
@@ -34,7 +34,7 @@ public class Init{
   uat = new Uat("NULL", Enum, "azg:null", IW("null"));
  }
 
- private static void SetUat(){
+ private static void SetPlace(){
   for(int x = 0; x < GameScreen[0] / ImageS; x++){
    for(int y = 0; y < GameScreen[1] / ImageS; y++){
 	GamePlace[x][y] = GetTexture((int)(Math.random() * (Enum - 1)));

@@ -1,14 +1,10 @@
 package rendering;
 import static clas.Frame.Out;
-import static clas.Init.AllGround;
 import static clas.Init.Cof;
 import static clas.Init.GamePlace;
-import static clas.Init.GameScreen;
 import static clas.Init.ImageS;
 import static clas.Init.ScreenBounds;
 import static clas.Init.ScreenPos;
-import static entities.Uat.IW;
-import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -34,7 +30,6 @@ public class Rendering{
 	try{
 	 Plate = ImageIO.read(new File(GamePlace[X][Y]));
 	}catch(IOException iOException){
-	 Plate = ImageIO.read(new File(IW("null")));
 	}
 	//
 	for(int x = 0; x < ImageS; x++){
@@ -62,9 +57,7 @@ public class Rendering{
   return Base;
  }
 
- //
- //
- //
+ /*
  public static void RenderGround(){
   try{
    BufferedImage Overlay = new BufferedImage(GameScreen[0], GameScreen[1], 1);
@@ -76,7 +69,7 @@ public class Rendering{
   }catch(IOException iOException){
   }
  }
- /*
+ 
   public static void RenderAll(){
   try{
   Out.setIcon(new ImageIcon(Cut(ScreenPos[0], ScreenPos[1],
@@ -86,7 +79,7 @@ public class Rendering{
   }catch(IOException iOE){
   }
   }
-  */
+  
 
  private static BufferedImage RenderUat(BufferedImage Base) throws IOException{
   Base = DrawUat((int)(Math.random() * 500) + 200, (int)(Math.random() * 500) + 200, "player//R_00_00", Base);
@@ -166,6 +159,6 @@ public class Rendering{
    }
   }
   return CurrentImage;
- }
+ }*/
 
 }

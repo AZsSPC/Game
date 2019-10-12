@@ -3,25 +3,38 @@ import entities.Uat;
 import static entities.Uat.GetTexture;
 import static entities.Uat.IW;
 import java.awt.image.BufferedImage;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 
 public class Init{
 
- public static BufferedImage AllGround;
- public static int Enum = 0;
- public static int StepLength = 15;
- public static int Cof = 0;
- public static int ImageS = 32 * (Cof + 1);
  public static Object[][] UatBaseList = new Object[100][4];
  public static Object[][] UatInGameList = new Object[100][4];
  public static int[] ScreenBounds = {23 * (32), 23 * (32)};
- public static int[] ScreenPos = {1 * StepLength, 1 * StepLength};
- public static int[] GameScreen = {ImageS * 40, ImageS * 40};
- public static String[][] GamePlace = new String[GameScreen[0] / ImageS][GameScreen[1] / ImageS];
+ public static int[] ScreenPos = {0, 0};
+ public static int Enum = 0;
+ public static BufferedImage AllGround;
+ public static int Cof;
+ public static int StepLength;
+ public static int ImageS;
+ public static String[][] GamePlace = new String[40][40];
 
  public static void Init() throws IOException{
-  InitUat();
-  SetPlace();
+  try{
+   InitVar(0);
+   InitUat();
+   SetPlace();
+  }catch(FileNotFoundException ex){
+  }
+ }
+
+ public static void InitVar(int newCof){
+  Cof = newCof;
+  StepLength = 4 * (Cof + 1);
+  ImageS = 32 * (Cof + 1);
  }
 
  private static void InitUat(){
@@ -35,10 +48,16 @@ public class Init{
   uat = new Uat("NULL", Enum, "azg:null", IW("null"));
  }
 
- private static void SetPlace(){
-  for(int x = 0; x < GameScreen[0] / ImageS; x++){
-   for(int y = 0; y < GameScreen[1] / ImageS; y++){
-	GamePlace[x][y] = GetTexture((int)(Math.random() * (Enum - 1)));
+ private static void SetPlace() throws FileNotFoundException, IOException{
+  BufferedReader f = new BufferedReader(new FileReader(new File("src/levels/level1.txt")));
+  String[][] s = new String[GamePlace.length][GamePlace.length];
+  for(int i = 0; i < GamePlace.length; i++){
+   s[i] = f.readLine().split(";");
+   f.skip(1);
+  }
+  for(int x = 0; x < GamePlace.length; x++){
+   for(int y = 0; y < GamePlace.length; y++){
+	GamePlace[x][y] = GetTexture(Integer.parseInt(s[y][x]));
    }
   }
  }

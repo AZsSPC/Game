@@ -6,6 +6,7 @@ import static clas.Init.GamePlace;
 import static clas.Init.GameScreen;
 import static clas.Init.ImageS;
 import static clas.Init.ScreenBounds;
+import static clas.Init.ScreenPos;
 import static entities.Uat.IW;
 import java.awt.Color;
 import java.awt.image.BufferedImage;
@@ -18,14 +19,21 @@ public class Rendering{
 
  public static void RenderAll2(){
   try{
-   Out.setIcon(new ImageIcon(Render2(Render1(Render0()))));
+   Out.setIcon(new ImageIcon(Render2(Render1(Render0(
+   new BufferedImage(ScreenBounds[0], ScreenBounds[1], 1), ScreenPos)))));
   }catch(IOException iOE){
   }
  }
 
- private static BufferedImage Render0() throws IOException{
-  BufferedImage Base = new BufferedImage(ScreenBounds[0], ScreenBounds[1], 1);
-  Base.setRGB(6, 30, Color.RED.getRGB());
+ private static BufferedImage Render0(BufferedImage Base, int[] Pos) throws IOException{
+  int H = Base.getHeight();
+  int W = Base.getWidth();
+  for(int x = 0; x < W; x++){
+   for(int y = 0; y < H; y++){
+	
+   }
+  }
+  Base = Base;
   return Base;
  }
 
@@ -53,17 +61,18 @@ public class Rendering{
   }catch(IOException iOException){
   }
  }
-/*
- public static void RenderAll(){
+ /*
+  public static void RenderAll(){
   try{
-   Out.setIcon(new ImageIcon(Cut(ScreenPos[0], ScreenPos[1],
-   ScreenPos[0] + ScreenBounds[0], ScreenPos[1] + ScreenBounds[1],
-   Render2(RenderUat(Render1(Render0(
-   AllGround)))))));
+  Out.setIcon(new ImageIcon(Cut(ScreenPos[0], ScreenPos[1],
+  ScreenPos[0] + ScreenBounds[0], ScreenPos[1] + ScreenBounds[1],
+  Render2(RenderUat(Render1(Render0(
+  AllGround)))))));
   }catch(IOException iOE){
   }
- }
-*/
+  }
+  */
+
  private static BufferedImage RenderUat(BufferedImage Base) throws IOException{
   Base = DrawUat((int)(Math.random() * 500) + 200, (int)(Math.random() * 500) + 200, "player//R_00_00", Base);
   return Base;

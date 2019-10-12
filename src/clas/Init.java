@@ -10,8 +10,9 @@ public class Init{
  public static BufferedImage AllGround;
  public static int Enum = 0;
  public static int StepLength = 15;
- public static final int Cof = 1;
- public static Object[][] UatLit = new Object[100][4];
+ public static final int Cof = 0;
+ public static Object[][] UatBaseList = new Object[100][4];
+ public static Object[][] UatInGameList = new Object[100][4];
  public static final int[] ScreenBounds = {800, 800};
  public static int[] ScreenPos = {10 * StepLength, 10 * StepLength};
  public static final int ImageS = 32 * (Cof + 1);

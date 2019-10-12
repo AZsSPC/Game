@@ -1,20 +1,20 @@
 package entities;
 import static clas.Init.Enum;
-import static clas.Init.UatLit;
+import static clas.Init.UatBaseList;
 
 public class Uat{
 
  public Uat(String name, int id, String sid, String texture){
-  UatLit[Enum][0] = name;
-  UatLit[Enum][1] = id;
-  UatLit[Enum][2] = sid;
-  UatLit[Enum][3] = texture;
+  UatBaseList[Enum][0] = name;
+  UatBaseList[Enum][1] = id;
+  UatBaseList[Enum][2] = sid;
+  UatBaseList[Enum][3] = texture;
   Enum++;
   //System.out.println("Name:{" + name + "},ID:{" + id + "},SID:{" + sid + "},Texture:{" + texture + "}");
  }
 
  public static String GetTexture(int id){
-  return UatLit[id][3] + "";
+  return UatBaseList[id][3] + "";
  }
 
  public static String IW(String s){

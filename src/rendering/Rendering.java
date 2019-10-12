@@ -26,11 +26,26 @@ public class Rendering{
  }
 
  private static BufferedImage Render0(BufferedImage Base, int[] Pos) throws IOException{
-  int H = Base.getHeight();
-  int W = Base.getWidth();
-  for(int x = 0; x < W; x++){
-   for(int y = 0; y < H; y++){
-	
+  BufferedImage Plate = new BufferedImage(ImageS, ImageS, 1);
+  int H = Base.getHeight() / ImageS + 1;
+  int W = Base.getWidth() / ImageS + 1;
+  for(int X = 0; X < W; X++){
+   for(int Y = 0; Y < H; Y++){
+	try{
+	 Plate = ImageIO.read(new File(GamePlace[X][Y]));
+	}catch(IOException iOException){
+	 Plate = ImageIO.read(new File(IW("null")));
+	}
+	//
+	for(int x = 0; x < ImageS; x++){
+	 for(int y = 0; y < ImageS; y++){
+	  try{
+	   Base.setRGB(X * ImageS + x, Y * ImageS + y, Plate.getRGB(x / (Cof + 1), y / (Cof + 1)));
+	  }catch(Exception e){
+	  }
+	 }
+	}
+	//
    }
   }
   Base = Base;

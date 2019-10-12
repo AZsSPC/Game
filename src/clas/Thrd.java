@@ -19,6 +19,9 @@ public class Thrd extends Thread{
    if(ScreenPos[0] - StepLength >= 0 && isApressed)ScreenPos[0] -= StepLength;
    if(ScreenPos[1] + StepLength <= GameScreen[1] - ScreenBounds[1] && isSpressed)ScreenPos[1] += StepLength;
    if(ScreenPos[0] + StepLength <= GameScreen[0] - ScreenBounds[0] && isDpressed)ScreenPos[0] += StepLength;
+  /* if(isWpressed)Cof++;
+   if(isSpressed)Cof--;
+   ImageS = 32 * (Cof + 1);*/
    RenderAll2();
   }
  }

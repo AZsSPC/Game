@@ -10,13 +10,13 @@ public class Init{
  public static BufferedImage AllGround;
  public static int Enum = 0;
  public static int StepLength = 15;
- public static final int Cof = 0;
+ public static int Cof = 0;
+ public static int ImageS = 32 * (Cof + 1);
  public static Object[][] UatBaseList = new Object[100][4];
  public static Object[][] UatInGameList = new Object[100][4];
- public static final int[] ScreenBounds = {800, 800};
- public static int[] ScreenPos = {10 * StepLength, 10 * StepLength};
- public static final int ImageS = 32 * (Cof + 1);
- public static final int[] GameScreen = {ImageS * 30, ImageS * 30};
+ public static int[] ScreenBounds = {23 * (32), 23 * (32)};
+ public static int[] ScreenPos = {1 * StepLength, 1 * StepLength};
+ public static int[] GameScreen = {ImageS * 40, ImageS * 40};
  public static String[][] GamePlace = new String[GameScreen[0] / ImageS][GameScreen[1] / ImageS];
 
  public static void Init() throws IOException{

@@ -17,8 +17,8 @@ public class Thrd extends Thread{
  public void run(){
   while(true){
    Sleep(10);
-   if(ScreenPos[1] - StepLength >= 0 && isWpressed)ScreenPos[1] -= StepLength;
-   if(ScreenPos[0] - StepLength >= 0 && isApressed)ScreenPos[0] -= StepLength;
+   if(ScreenPos[1] - StepLength >= ScreenBounds[1] - GamePlace.length * ImageS && isWpressed)ScreenPos[1] -= StepLength;
+   if(ScreenPos[0] - StepLength >= ScreenBounds[0] - GamePlace.length * ImageS && isApressed)ScreenPos[0] -= StepLength;
    if(ScreenPos[1] + StepLength <= GamePlace.length * ImageS - ScreenBounds[1] && isSpressed)ScreenPos[1] += StepLength;
    if(ScreenPos[0] + StepLength <= GamePlace.length * ImageS - ScreenBounds[0] && isDpressed)ScreenPos[0] += StepLength;
    InitVar(0);

@@ -38,14 +38,16 @@ public class Init{
  }
 
  private static void InitUat(){
-  //new Uat("Player", Enum, "azg:player", IW("player/R_00_00"));
-  Uat uat = new Uat("Brick", Enum, "azg:plate:brick", IW("plates/brick"));
+  /*new Uat("Player", Enum, "azg:player", IW("player/R_00_00"));
+  
+   the last texture is NULL*/
+  Uat uat = new Uat("NULL", Enum, "azg:null", IW("null"));
+  /**/
   uat = new Uat("Dirt brick", Enum, "azg:plate:brick_dirt", IW("plates/brick_dirt"));
   uat = new Uat("Stone brick", Enum, "azg:plate:brick_stone", IW("plates/brick_stone"));
   uat = new Uat("Water", Enum, "azg:plate:water", IW("plates/water"));
   uat = new Uat("Planks", Enum, "azg:plate:planks", IW("plates/planks"));
-  /*the last texture is NULL*/
-  uat = new Uat("NULL", Enum, "azg:null", IW("null"));
+  uat = new Uat("Brick", Enum, "azg:plate:brick", IW("plates/brick"));
  }
 
  private static void SetPlace() throws FileNotFoundException, IOException{

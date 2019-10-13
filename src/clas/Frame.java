@@ -1,27 +1,28 @@
 package clas;
+
 import java.io.IOException;
 
-public class Frame extends javax.swing.JFrame{
+public class Frame extends javax.swing.JFrame {
 
  public static boolean isApressed = false;
  public static boolean isDpressed = false;
  public static boolean isSpressed = false;
  public static boolean isWpressed = false;
 
- public Frame() throws IOException{
+ public Frame() throws IOException {
   Init.Init();
   initComponents();
   InitLast();
  }
 
- private void InitLast(){
-  addKeyListener(new java.awt.event.KeyAdapter(){
-   public void keyPressed(java.awt.event.KeyEvent evt){
-	formKeyPrs(evt);
+ private void InitLast() {
+  addKeyListener(new java.awt.event.KeyAdapter() {
+   public void keyPressed(java.awt.event.KeyEvent evt) {
+    formKeyPrs(evt);
    }
 
-   public void keyReleased(java.awt.event.KeyEvent evt){
-	formKeyRel(evt);
+   public void keyReleased(java.awt.event.KeyEvent evt) {
+    formKeyRel(evt);
    }
   });
  }
@@ -74,45 +75,45 @@ public class Frame extends javax.swing.JFrame{
   setLocationRelativeTo(null);
  }// </editor-fold>//GEN-END:initComponents
 
- private void formKeyPrs(java.awt.event.KeyEvent evt){
-  switch(evt.getKeyCode()){
+ private void formKeyPrs(java.awt.event.KeyEvent evt) {
+  switch (evt.getKeyCode()) {
    case 87:
-	isWpressed = true;
-	break;
+    isWpressed = true;
+    break;
    case 65:
-	isApressed = true;
-	break;
+    isApressed = true;
+    break;
    case 83:
-	isSpressed = true;
-	break;
+    isSpressed = true;
+    break;
    case 68:
-	isDpressed = true;
-	break;
+    isDpressed = true;
+    break;
    default:
-	break;
+    break;
   }
  }
 
- private void formKeyRel(java.awt.event.KeyEvent evt){
-  switch(evt.getKeyCode()){
+ private void formKeyRel(java.awt.event.KeyEvent evt) {
+  switch (evt.getKeyCode()) {
    case 87:
-	isWpressed = false;
-	break;
+    isWpressed = false;
+    break;
    case 65:
-	isApressed = false;
-	break;
+    isApressed = false;
+    break;
    case 83:
-	isSpressed = false;
-	break;
+    isSpressed = false;
+    break;
    case 68:
-	isDpressed = false;
-	break;
+    isDpressed = false;
+    break;
    default:
-	break;
+    break;
   }
  }
 
- public static void main(String args[]) throws IOException{
+ public static void main(String args[]) throws IOException {
   new Frame().setVisible(true);
   new Thrd().start();
  }

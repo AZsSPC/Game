@@ -9,12 +9,13 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import javax.imageio.ImageIO;
 
 public class Init {
 
  public static Object[][] UatBaseList = new Object[100][4];
  public static Object[][] UatInGameList = new Object[100][4];
- public static int[] ScreenBounds = {23 * (32), 23 * (32)};
+ public static int[] ScreenBounds = {15 * (32), 15 * (32)};
  public static int[] ScreenPos = {0, 0};
  public static int Enum = 0;
  public static BufferedImage AllGround;
@@ -22,10 +23,11 @@ public class Init {
  public static int StepLength;
  public static int ImageS;
  public static String[][] GamePlace = new String[40][40];
+ public static BufferedImage[][] Plates = new BufferedImage[40][40];
 
  public static void Init() throws IOException {
   try {
-   InitVar(0);
+   InitVar(2);
    InitUat();
    SetPlace();
   } catch (FileNotFoundException ex) {
@@ -60,7 +62,7 @@ public class Init {
   }
   for (int x = 0; x < GamePlace.length; x++) {
    for (int y = 0; y < GamePlace.length; y++) {
-    GamePlace[x][y] = GetTexture(Integer.parseInt(s[y][x]));
+    Plates[x][y] = ImageIO.read(new File(GetTexture(Integer.parseInt(s[y][x]))));
    }
   }
  }

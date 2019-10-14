@@ -1,5 +1,6 @@
 package entities;
 
+import clas.Init;
 import static clas.Init.Enum;
 import static clas.Init.UatBaseList;
 

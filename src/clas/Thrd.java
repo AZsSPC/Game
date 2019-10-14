@@ -17,7 +17,7 @@ public class Thrd extends Thread {
  @Override
  public void run() {
   while (true) {
-   Sleep(10);
+   Sleep(20);
    if (ScreenPos[1] - StepLength >= ScreenBounds[1] - GamePlace.length * ImageS && isWpressed) {
     ScreenPos[1] -= StepLength;
    }
@@ -30,7 +30,7 @@ public class Thrd extends Thread {
    if (ScreenPos[0] + StepLength <= GamePlace.length * ImageS - ScreenBounds[0] && isDpressed) {
     ScreenPos[0] += StepLength;
    }
-   InitVar(0);
+   InitVar(1);
    /* if(isWpressed)Cof++;
     if(isSpressed)Cof--;
     ImageS = 32 * (Cof + 1);*/

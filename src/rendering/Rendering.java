@@ -4,6 +4,7 @@ import static clas.Frame.Out;
 import static clas.Init.Cof;
 import static clas.Init.GamePlace;
 import static clas.Init.ImageS;
+import static clas.Init.Plates;
 import static clas.Init.ScreenBounds;
 import static clas.Init.ScreenPos;
 import static clas.Init.StepLength;
@@ -30,15 +31,15 @@ public class Rendering {
   for (int X = 0; X < W; X++) {
    for (int Y = 0; Y < H; Y++) {
     try {
-     Plate = ImageIO.read(new File(GamePlace[X + Pos[0] / StepLength][Y + Pos[1] / StepLength]));
+     Plate = Plates[X + Pos[0] / StepLength][Y + Pos[1] / StepLength];
     } catch (Exception e) {
      Plate = null;
     }
-    //
+    // 
     for (int x = 0; x < ImageS; x++) {
      for (int y = 0; y < ImageS; y++) {
       try {
-       Base.setRGB(X * ImageS + x, Y * ImageS + y, Plate.getRGB(x / (Cof + 1), y / (Cof + 1)));
+       Base.setRGB(X * ImageS + x , Y * ImageS + y, Plate.getRGB(x / (Cof + 1), y / (Cof + 1)));
       } catch (Exception e) {
       }
      }
@@ -46,7 +47,6 @@ public class Rendering {
     //
    }
   }
-  Base = Base;
   return Base;
  }
 
